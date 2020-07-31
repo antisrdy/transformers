@@ -1287,13 +1287,6 @@ class PreTrainedTokenizerBase(SpecialTokensMixin):
         # Backward compatibility for previous behavior, maybe we should deprecate it:
         # If you only set max_length, it activates truncation for max_length
         if max_length is not None and padding is False and truncation is False:
-            if verbose:
-                logger.warning(
-                    "Truncation was not explicitely activated but `max_length` is provided a specific value, "
-                    "please use `truncation=True` to explicitely truncate examples to max length. "
-                    "Defaulting to 'only_first' truncation strategy. "
-                    "If you encode pairs of sequences (GLUE-style) with the tokenizer you may want to check this is the right behavior."
-                )
             truncation = "only_first"
 
         # Get padding strategy
